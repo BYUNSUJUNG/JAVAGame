@@ -1,0 +1,25 @@
+public class BattleGame {
+ int hp=100, mp=100;
+ boolean defense=true; // 방어 o : false, 방어 x : true 
+ 
+ public void chadata() {
+   System.out.println("HP : "+ hp + " / MP : "+mp);
+ }
+ public void attack() {
+   mp-=30;
+   System.out.println("MP이(가) 30 감소합니다. \n");
+ }
+ public void attacked() {
+   if(defense==false) {
+     defense=true;
+     System.out.println("방어에 성공했습니다. \n");
+     System.out.println("HP이(가) 0 감소합니다. \n");
+   } else { 
+     hp-=30;
+     System.out.println("HP이(가) 30 감소합니다. \n");
+   }
+ }
+ public void defense() {
+   defense=false; 
+ } 
+}
