@@ -1,0 +1,81 @@
+import java.util.*;public class GameTest {
+ public static void main(String[] args) {
+ Game playNum01= new Game(); 
+ Game playNum02= new Game();
+ Game comNum01= new Game(); 
+ Game comNum02= new Game();  
+ String playName01="너꾸리"; 
+ String playName02="너구리";  
+ String comName01="상어";  
+ String comName02="고슴도치";
+ 
+  int charSelect; // player character select 
+  int menuSelect; // player의 attack&defense select  
+  int attackSelect; // attack  character select  
+  int comSelect; // computer character select
+  int comMenuSelect;  // computer의 attack&defense select  
+  int comAttackSelect; //   computer의 attack  character select  
+  int turn=0; // 0&짝수: player , 홀수: computer  
+  
+  Scanner scan=new Scanner(System.in);  
+      while(true) { 
+      if(turn%2==0) { 
+        System.out.println("캐릭터를 선택 해주세요 \n 1. "+playName01+"  2. "+ playName02 + "\n");  
+        System.out.print("선택 :comSelect=(int)(Math.random()*2); // 0: 상어, 1: 고슴도치  
+        switch(comSelect) { 
+        case 0 :  comMenuSelect=(int)(Math.random()*2);// 0: attack , 1:defense   
+        switch(comMenuSelect) {         case 0 : comAttackSelect=(int)(Math.random()*2); // 0:너꾸리 attack, 1: 너구리 attack  ");  
+        charSelect=scan.nextInt();  
+        switch(charSelect) {  
+           case 1 :  System.out.println("\n 1. 공격  2. 방어 \n");   
+                    System.out.print("선택 : ");  
+                    menuSelect=scan.nextInt();  
+                    switch(menuSelect) { 
+                      case 1 :  System.out.println("\n 공격할 캐릭터를 선택하세요 \n 1. "+ comName01+"  2 ."+ comName02+ "\n");   
+                                System.out.print("선택 : ");   
+           menuSelect=scan.nextInt();   
+           switch(menuSelect) {   
+             case 1 : System.out.println("\n 공격할 캐릭터를 선택하세요 \n 1. "+ comName01 +"  2. "+comName02+ "\n");  
+                      System.out.print("선택 : ");
+                      attackSelect=scan.nextInt();   
+                      switch(attackSelect) {    
+                         case 1 : System.out.println("\n 공격!!!! \n"+playName02+" 이(가) "+comName01+" 을(를) 공격했습니다. \n"); 
+                                  playNum02.attack(); 
+                                  comNum01.attacked();
+                                  break;         
+                        case 2:  System.out.println("\n 공격!!!!  \n"+playName02+" 이(가) "+comName02+" 을(를) 공격했습니다. \n"); 
+                                 playNum02.attack(); 
+                                 comNum02.attacked();
+                                 } break;     
+              case 2 : System.out.println("\n 방어!!!! \n"+ playName02+" 이(가) 방어했습니다. \n"); 
+                       playNum02.defense();
+                       break;    
+             }    
+        } // switch end   
+        
+            } else {   
+              comSelect=(int)(Math.random()*2); // 0: 상어, 1: 고슴도치 
+              switch(comSelect) {  
+                case 0 :  comMenuSelect=(int)(Math.random()*2); // 0: attack , 1:defense   
+                          switch(comMenuSelect) {
+                                 case 0 : comAttackSelect=(int)(Math.random()*2); // 0:너꾸리 attack, 1: 너구리 attack  
+                                          switch(comAttackSelect) {   
+                                          case 0 : System.out.println("공격!!!!  \n"+comName01+" 이(가) "+playName01+" 을(를) 공격했습니다. \n");
+                                                   comNum01.attack(); 
+                                                   playNum01.attacked();
+                                                   break;    
+                                          case 1 : System.out.println("공격!!!!  \n"+comName01+" 이(가) "+ playName02+" 을(를) 공격했습니다. \n"); 
+                                                   comNum01.attack();
+                                                   playNum02.attacked();  break;  
+                                          } break;  
+                                 case 1 : System.out.println("방어!!!! \n"+comName01+" 이(가) 방어했습니다. \n");    
+                                          comNum01.defense(); break;
+                          }  break;   
+                case 1 : comMenuSelect=(int)(Math.random()*2); // 0: attack , 1:defense     
+                         switch(comMenuSelect) {   
+                            case 0 :  comAttackSelect=(int)(Math.random()*2); // 0:너꾸리 attack, 1: 너구리 attack  
+                                      switch(comAttackSelect) { 
+                                        case 0 : System.out.println("공격!!!!  \n"+comName02+" 이(가) "+ playName01+" 을(를) 공격했습니다. \n");
+                                                 comNum02.attack(); playNum01.attacked(); break;                                    case 1 : System.out.println("공격!!!!  \n"+comName02+" 이(가) "+ playName02+" 을(를) 공격했습니다. \n");                     comNum02.attack(); playNum02.attacked();   break;                 } break;         case 1 : System.out.println("방어!!!! \n"+ comName02+" 이(가) 방어했습니다. \n");             comNum02.defense(); break;        }      } // switch end                } //  if  end      System.out.println("==="+playName01+"===");   playNum01.chadata();   System.out.println("==="+playName02+"===");   playNum02.chadata();    System.out.println("==="+comName01+"===");   comNum01.chadata();   System.out.println("==="+comName02+"===");   comNum02.chadata();   System.out.println(" ");       turn+=1;    } // while end 
+} // class end} // class end
+     
