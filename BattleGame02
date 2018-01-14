@@ -1,0 +1,38 @@
+public class Game {
+
+	int hp=100, mp=100;
+
+	boolean defense=true; // 방어 o : false, 방어 x : true
+	
+	
+	public void chadata() {
+		System.out.println("HP : "+ hp + " / MP : "+mp);
+	}
+	
+	public void attack() {
+		mp-=30;
+	}
+	
+	public void attacked() {
+		if(defense==false) {
+			defense=true;
+
+		} else { 
+			hp-=30; 
+			
+		}
+	}
+	
+	public void defense() {
+		defense=false;
+		mp-=30;
+	}
+	
+	public void heal() {
+		hp+=40;
+		mp-=40;
+
+	}
+
+	
+}
