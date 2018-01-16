@@ -1,4 +1,4 @@
-public class BattleGame {
+public class Game {
  int hp=100, mp=100;
  boolean defense=true; // 방어 o : false, 방어 x : true 
  
